@@ -1,0 +1,27 @@
+---
+- name: Validate .NET version
+  assert:
+    that:
+      - dotnet_version in ["4.8.1", "4.8", "4.7.2", "4.7.1", "4.7", "4.6.2"]
+    fail_msg: 'Invalid .NET version. Please select a valid version: 4.8.1, 4.8, 4.7.2, 4.7.1, 4.7, 4.6.2'
+
+- name: Check if the required .NET Framework version is installed
+  win_reg_stat:
+    path: '{{ dotnet_registry_path }}'
+    name: '{{ dotnet_registry_name }}'
+  register: dotnet_reg
+
+- name: Install .NET Framework
+  win_package:
+    path: '{{ dotnet_installer_urls[dotnet_version] }}'
+    state: present
+    arguments: /q /norestart
+  become: true
+  become_method: runas
+  become_user: SYSTEM
+  register: dotnet_install
+  when: dotnet_registry_data[dotnet_version]|int > dotnet_reg.value|int
+
+- name: Reboot the system if the .NET Framework installer requires it
+  win_reboot:
+  when: dotnet_install.reboot_required is defined and dotnet_install.reboot_required

@@ -1,0 +1,19 @@
+---
+dotnet_version: '4.8'
+dotnet_installer_urls:
+  '4.6.2': 'https://go.microsoft.com/fwlink/?linkid=2099468'
+  '4.7': 'https://go.microsoft.com/fwlink/?LinkId=2099385'
+  '4.7.1': 'https://go.microsoft.com/fwlink/?LinkID=2099383'
+  '4.7.2': 'https://go.microsoft.com/fwlink/?LinkID=863265'
+  '4.8': 'https://go.microsoft.com/fwlink/?linkid=2088631'
+  '4.8.1': 'https://go.microsoft.com/fwlink/?linkid=2203305'
+dotnet_registry_data:
+  '4.6.2': '394802'
+  '4.7': '460798'
+  '4.7.1': '461308'
+  '4.7.2': '461814'
+  '4.8': '528049'
+  '4.8.1': '533325'
+dotnet_installer_path: "C:\\temp\\ndp-dotnet-{{ dotnet_version }}-x86-x64-allos-enu.exe"
+dotnet_registry_path: "HKLM:\\SOFTWARE\\Microsoft\\NET Framework Setup\\NDP\\v4\\Full"
+dotnet_registry_name: 'Release'
