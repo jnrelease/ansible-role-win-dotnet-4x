@@ -1,7 +1,8 @@
 galaxy_info:
-  author: your name
-  description: your role description
-  company: your company (optional)
+  ansible_role: win_dotnet_4x
+  author: Javel Wilson
+  description: Installs .NET Framework 4.x on a Windows server
+  company: JN Release
 
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
